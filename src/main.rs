@@ -13,7 +13,7 @@ fn process_command(drink: &str) {
         "library" => println!("You're in a bar, not a library. It's just across the street.\nYou drank 10 beers anyway."),
         "sudo rm -rf /*" => println!("Magically the bar is still here. You're not a hacker."),
         "this is a robbery" => println!("You're not a robber. You're a drunk."),
-        "can i have uhhhh" => println!("Sir, this is not a McDonalds."),
+        "can i have a uhhhh" => println!("Sir, this is not a McDonalds."),
         _ => println!("We don't have {}", drink),
     }
     let mut input = String::new();
