@@ -2,9 +2,9 @@ use std::io::{self, Write};
 
 fn process_command(drink: &str) {
     match drink {
-        "beer" => beer(),
-        "vodka" => vodka(),
-        "wine" => wine(),
+        "beer" => Drink::Beer,
+        "vodka" => Drink::Vodka,
+        "wine" => Drink::Wine,
         "drinks" => drinks(),
         "drink" => drank(drink.to_string()),
         "drink-drive" => println!("You're now a worthless corpse. Good job!"),
@@ -26,19 +26,24 @@ fn process_command(drink: &str) {
     
 }
 
-fn beer() {
-    println!("Here's your beer");
-    prompt(true, "beer");
+enum Drink {
+    Beer,
+    Vodka,
+    Wine,
 }
 
-fn vodka() {
-    println!("Here's your vodka");
-    prompt(true, "vodka");
+fn serve(drink: Drink) {
+    match drink {
+        Drink::Beer => println!("Here's your beer"),
+        Drink::Vodka => println!("Here's your vodka"),
+        Drink::Wine => println!("Here's your wine"),
+    }
 }
 
-fn wine() {
-    println!("Here's your wine");
-    prompt(true, "wine");
+fn main() {
+    serve(Drink::Beer);
+    serve(Drink::Vodka);
+    serve(Drink::Wine);
 }
 
 fn drinks() {
@@ -46,7 +51,7 @@ fn drinks() {
 }
 
 fn drank(drink: String) {
-    println!("You drank the {}", drink);
+    println!("You savored the {}", drink);
 }
 
 fn prompt(bool: bool, udrink: &str) {
